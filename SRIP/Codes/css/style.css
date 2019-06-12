@@ -11,13 +11,13 @@ padding-bottom:50px;
 #container {
 position:relative;
 padding-top:15px;
-background-image: url(images/ma-container.jpg);
 margin-left:15px;
 width: 1250px;
-height:1000px;
+height:1400px;
 -moz-box-shadow: 10px 10px 5px #888888; /* Firefox 3.6 and earlier */
 -webkit-box-shadow: 10px 10px 5px #888888; /* Safari */
 box-shadow: 10px 10px 5px #888888;
+
 }
 
 
@@ -71,6 +71,9 @@ background:#a2b3a1;
 color:#000
 }
 
+
+/*header.html molecule image*/
+
 #molecule a{
 	text-decoration: none;
 	font-size: 30px;
@@ -82,6 +85,10 @@ div #molecule a:hover
  {	
  	color: green;
  } 
+
+
+
+/*header_1.html content*/
 
 .gamess{
 	color:#878787;
@@ -101,9 +108,41 @@ div #molecule a:hover
 	font-size:18px;
 	font-weight: 300;
 }
+
+
+
+
+/*water.html : simulator and other content*/
+
+#simulator-stuff{
+	float:left;
+}
+
+#simulator{
+	width: 450px;
+	height: 450px;
+	background-color: #000000;
+}
+
+select{
+	width:40px;
+	height:24px;
+	font-size:17px;
+	font-weight: 400;
+}
+
+.render-button{
+	width:80px;
+	height:30px;
+	font-size: 17px;
+	font-weight: 400;
+}
+
+
 #content
 {
 padding-left:18px;
+font-size: 15px;
 }
 #form
 {

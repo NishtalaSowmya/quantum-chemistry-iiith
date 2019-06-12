@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Water Molecule</title>
+	<link rel="stylesheet" href="css/style.css">
+
+	<script type="text/javascript">
+		function submit(){
+			var molecule_name="water";
+			localStorage.setItem('molecule',molecule_name);
+			window.document.location='./gamessinput.html';
+		}
+
+	</script>
+
+</head>
+
+<body>
+	
+	<div id="container" style="background-color: #ffffff">
+		
+		<div id="top-bar"><!--top bar starts-->
+			<table>
+				<tr>
+						<td><img src="images/iiith-logo.png" height="90px"/></td>
+				</tr>
+			</table>
+		</div><!--top bar ends-->
+		
+		
+		<div id="header"><!--header starts-->
+			<ul id="list-nav" style="padding-left: 50px">
+				<li><a href="../../" style="border-top-left-radius:0.8em;border-bottom-left-radius:0.8em; ">HOME</a></li>
+				<li><a href="water.html">WATER</a></li>
+				<li><a href="ammonia.html">AMMONIA</a></li>
+				<li><a href="formaldehyde.html">FORMALDEHYDE</a></li>
+				<li><a href="methane.html">METHANE</a></li>
+				<li><a href="benzene.html">BENZENE</a></li>
+				<li><a href="c-60.html">C-60</a></li>				
+			
+
+				<!--
+				<li id="blank">LOGIN</li>
+				<li><a href="#">Student</a></li>-->
+				<li><a href="#" style="border-top-right-radius:0.8em;border-bottom-right-radius:0.8em;padding-left:00px ">EXP 4</a></li>
+				
+			</ul>
+		</div><!--header ends-->
+
+		
+		<div id="simulator-stuff">
+			<table>
+				<tr align="center">
+					<td >
+						<img src="images/water.png" height=350px width=350px/>	
+						<p style="font-size: 15px">Follow the convertion of the atom ordering</p>
+					</td>
+					<td>
+						<br><br><br>      <article id="simulator"></article>
+					</td>
+					<td align="justify" style="padding-left:100px">
+						<input type="radio" class="spacefill" name="spacefill" value="20%">spacefill 20%<br>
+						<input type="radio" class="spacefill" name="spacefill" value="25%">spacefill 25%<br>
+						<input type="radio" class="spacefill" name="spacefill" value="50%">spacefill 50%<br>
+						<input type="radio" class="spacefill" name="spacefill" value="75%">spacefill 75%<br>
+						<br><br>
+
+						<input type="radio" class="wireframe" name="wireframe" value="off">wireframe off<br>
+						<input type="radio" class="wireframe" name="wireframe" value="on">wireframe on <br>
+						<input type="radio" class="wireframe" name="wireframe" value="0.1">wireframe 0.1<br>
+						<input type="radio" class="wireframe" name="wireframe" value="0.3">wireframe 0.3<br>
+						<br><br>
+
+						<input type="checkbox" name="spin" value="spin">spin
+					
+					</td>
+				</tr>
+
+				<tr>
+				
+					<td colspan="2" align="center">
+				<br><br><br>
+						<p style="font-size: 24px;color: #000000;font-weight: 700;padding-left: 350px">Z-matrix calculation</p>
+						<p style="color: brown;font-weight: 300;font-size: 20px;padding-left: 350px">Select  &nbsp; &nbsp; &nbsp;
+							<select>
+							  <option value="O">O</option>
+							  <option value="H">H</option>
+							  <option value="C">O</option>
+							  <option value="N">H</option>							  
+							</select>
+							<input type="submit" class="render-button" name="render" value="Render" onclick="submit()"/>
+							<p style="font-size: 15px;padding-left: 350px">Choose atoms According to numbering provided in figure</p>
+
+
+							
+						</p>
+					</td>
+					
+				</tr>
+
+			</table>
+		</div>
+
+		
+
+	<!--footer starts (manual)-->
+		<div style="position:absolute;bottom: 10px">
+		<img src="images/ma-hrline.jpg" style="padding-left:15px;width:1220px;height:4px;"/>
+		<table >
+			<tr>
+				<td id="recent" >
+						<span style="padding-left:10px;">Manual</span>
+						<div style="padding-left:20px;font-size:13px;color:#878787;">
+							<br/>
+						    a) Select a molecule from above by clicking on it.<br/>
+						    b) Fill the atom connectivity to generate the z-matrix for the selected molecule. <br/>
+						    c) The next slide shows the method and  basis set for the optimization.<br/>
+						    d) The slide that follows shows the GAMESS input file for the selected molecule.<br/>
+				   		    e) Upon running GAMESS, the output file for the geometry optimization is displayed.<br/>
+						    f) The last slide shows how the structure varies as a function of energy.<br/>	
+						</div>			
+				</td>
+				<td><img src="images/vert.jpeg" style="width:4px;height:170px;align:top"/></td>
+				<td style="padding-left:20px"><img width="90px" height="100px" src="images/molecule.gif"/></td>
+				<td style="padding-left:20px;font-size:13px;font-style: italic;" width="320px">
+					Different kinds of calculations require different kinds of input. But some items are to be specified in all the cases. The two most popular computer programs for carrying out ab initio quantum chemical calculations is the "Gaussian" and "Gamess" series. 
+					<br/><br/>
+					<a href="../index.html" target="_blank" style="font-size:14px;color:#FFCC00;text-decoration:none;float:right">Read More&gt;&gt;</a>
+				</td>
+			</tr>
+			</table>
+		<img src="images/ma-hrline.jpg" style="padding-left:15px;width:1220px;height:4px;"/>
+		<img src="images/ma-footer.jpg" style="padding-left:15px;width:1220px;height:35px;"/>
+		
+		</div>		<!--footer ends -->
+	
+	</div>
+</body>
+</html>
