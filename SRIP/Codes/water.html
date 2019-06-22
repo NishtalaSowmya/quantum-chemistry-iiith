@@ -2,13 +2,64 @@
 <html lang="en">
 <head>
 	<title>Water Molecule</title>
-	<link rel="stylesheet" href="css/style.css">
+	<meta charset="utf-8">
 
+	<link rel="stylesheet" href="css/style.css">
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+	
+	<!--load z-matrix_calc onto this page. This div contains the calculation part.-->
 	<script type="text/javascript">
+	  	$("document").ready(function() {
+	        $('#calculation').load('water_z-matrix.html #t1');
+	    });
+	</script>
+
+	
+	<script type="text/javascript">
+		  //Function to load gamess input file when submit button is clicked.
 		function submit(){
 			var molecule_name="water";
 			localStorage.setItem('molecule',molecule_name);
 			window.document.location='./gamessinput.html';
+		}
+
+		//calculation step one
+		function first(){
+			var a1 = document.getElementsByName("atom1")[0].value;
+			if(a1=='O'){
+				$('#t1').load('water_z-matrix.html #t2');
+				document.getElementById("result").innerHTML="<p id='result1'>Correct Answer</p>";
+			}
+			else{
+				document.getElementById("result").innerHTML="<p id='result2'>Incorrect Option, Try Again!</p>";
+			}
+			
+	    
+		}
+
+		function second(){
+			var a2 = document.getElementsByName("atom2")[0].value;
+			var num = document.getElementsByName("number")[0].value;
+			if(a2=='H' && num=='1'){
+				$('#t1').load('water_z-matrix.html #t3');
+				document.getElementById("result").innerHTML="<p id='result1'>Correct Answer</p>";
+			}
+			else{
+				document.getElementById("result").innerHTML="<p id='result2'>Incorrect Option, Try Again!</p>";
+			}
+		}
+
+		function third(){
+			var a3 = document.getElementsByName("atom3")[0].value;
+			var num1 = document.getElementsByName("number_1")[0].value;
+			var num2 = document.getElementsByName("number_2")[0].value;
+			if(a3=='H' && num1=='1' && num2=='2'){
+				$('#t1').load('water_z-matrix.html #t4');
+				document.getElementById("result").innerHTML="<p id='result1'>Correct Answer</p>";
+			}
+			else{
+				document.getElementById("result").innerHTML="<p id='result2'>Incorrect Option, Try Again!</p>";
+			}
 		}
 
 	</script>
@@ -18,7 +69,6 @@
 <body>
 	
 	<div id="container" style="background-color: #ffffff">
-		
 		<div id="top-bar"><!--top bar starts-->
 			<table>
 				<tr>
@@ -38,10 +88,6 @@
 				<li><a href="benzene.html">BENZENE</a></li>
 				<li><a href="c-60.html">C-60</a></li>				
 			
-
-				<!--
-				<li id="blank">LOGIN</li>
-				<li><a href="#">Student</a></li>-->
 				<li><a href="#" style="border-top-right-radius:0.8em;border-bottom-right-radius:0.8em;padding-left:00px ">EXP 4</a></li>
 				
 			</ul>
@@ -59,7 +105,7 @@
 						<br><br><br>      <article id="simulator"></article>
 					</td>
 					<td align="justify" style="padding-left:100px">
-						<input type="radio" class="spacefill" name="spacefill" value="20%">spacefill 20%<br>
+						<input type="radio" class="spacefill" name="spacefill" value="20%" checked>spacefill 20%<br>
 						<input type="radio" class="spacefill" name="spacefill" value="25%">spacefill 25%<br>
 						<input type="radio" class="spacefill" name="spacefill" value="50%">spacefill 50%<br>
 						<input type="radio" class="spacefill" name="spacefill" value="75%">spacefill 75%<br>
@@ -67,7 +113,7 @@
 
 						<input type="radio" class="wireframe" name="wireframe" value="off">wireframe off<br>
 						<input type="radio" class="wireframe" name="wireframe" value="on">wireframe on <br>
-						<input type="radio" class="wireframe" name="wireframe" value="0.1">wireframe 0.1<br>
+						<input type="radio" class="wireframe" name="wireframe" value="0.1" checked="">wireframe 0.1<br>
 						<input type="radio" class="wireframe" name="wireframe" value="0.3">wireframe 0.3<br>
 						<br><br>
 
@@ -77,31 +123,30 @@
 				</tr>
 
 				<tr>
-				
 					<td colspan="2" align="center">
-				<br><br><br>
+						<br><br><br>
 						<p style="font-size: 24px;color: #000000;font-weight: 700;padding-left: 350px">Z-matrix calculation</p>
-						<p style="color: brown;font-weight: 300;font-size: 20px;padding-left: 350px">Select  &nbsp; &nbsp; &nbsp;
-							<select>
-							  <option value="O">O</option>
-							  <option value="H">H</option>
-							  <option value="C">O</option>
-							  <option value="N">H</option>							  
-							</select>
-							<input type="submit" class="render-button" name="render" value="Render" onclick="submit()"/>
-							<p style="font-size: 15px;padding-left: 350px">Choose atoms According to numbering provided in figure</p>
-
-
-							
-						</p>
+						
 					</td>
 					
 				</tr>
 
 			</table>
+		
+			<script type="text/javascript">
+
+			</script>
+			<div id="calculation" >
+
+			</div>	
+
+				
+				<p style="font-size: 15px;padding-left: 350px">Choose atoms According to numbering provided in figure</p>	
+				<p id="result"> </p>	
 		</div>
 
 		
+
 
 	<!--footer starts (manual)-->
 		<div style="position:absolute;bottom: 10px">

@@ -1,0 +1,91 @@
+<html>
+<head>
+	<link rel="stylesheet" href="css/style.css">
+	
+</head>
+
+	<body>
+		<div id="t1">
+
+				<div class="values">
+								<p>	Select &nbsp; &nbsp; 
+								<select name="atom1">
+								  <option value="O"> O </option>
+								  <option value="N"> N </option>
+								  <option value="C"> C </option>
+								  <option value="H"> H </option>
+								</select>
+							     							
+								<input type="submit" value="Render" onclick="first()"/>
+								</p>
+				</div>
+		</div>
+		
+				<div id="t2">
+						<div class="values">   
+						
+				                <p>O </p>
+				                <p>
+				                <select name="atom2">
+				                    <option value="O"> O </option>
+				                    <option value="N"> N </option>
+				                    <option value="C"> C </option>
+				                    <option value="H"> H </option>
+				               	</select>
+				        	
+								<select name="number"> 
+								  <option value="1"> 1 </option>
+								</select>
+							
+								<input type="text" style="width:30%"DISABLED />
+							
+								<input type="submit" value="Render" onclick="second()"/>
+								</p>
+						</div>	
+				</div>
+
+			<div id="t3">
+					<div class="values">
+	                        		<p>O </p>
+	                        		<p>H 	&nbsp; &nbsp; 1  &nbsp; &nbsp; 0.9689556</p>
+	                                <p>
+	                                <select name="atom3">
+	                                  <option value="O"> O </option>
+	                                  <option value="N"> N </option>
+	                                  <option value="C"> C </option>
+	                                  <option value="H"> H </option>
+	                                </select>
+	                        
+	                                <select name="number_1">
+	                                  <option value="1"> 1 </option>
+	                                  <option value="2"> 2 </option>
+	                                </select>
+	                       
+	                                <input type="text" DISABLED />
+	                        	    <select name="number_2">
+	                                  <option value="1"> 1 </option>
+	                                  <option value="2"> 2 </option>
+	                                </select>
+	                        
+	                                <input type="text" id="bond_length" style="width: 30%" DISABLED />
+	                        
+	                            <input type="submit" name="render" value="Render" onclick="third()"/>
+	                            </p> 
+	                     </div>
+	            </div>
+
+
+	        <div id="t4">
+	        	<div class="values">
+
+	        		<p>O</p>
+	        		<p> H &nbsp; &nbsp; 1 &nbsp; &nbsp;0.9689556 </p>
+	        		<p>H &nbsp; &nbsp; 1 &nbsp; &nbsp; 0.9689556 &nbsp; &nbsp;   2 &nbsp; &nbsp; 103.6325559</p>
+
+					<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+					<input type="submit" value="Go to Next Step" onclick="submit()"/> </p>
+						
+				</div>
+			</div>
+	</body>
+</html>
