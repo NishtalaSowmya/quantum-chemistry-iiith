@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="css/style.css">
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 	
-	<!--load z-matrix_calc onto this page. This div contains the calculation part.-->
+	<!--load z-matrix_calc onto this page. 'calculation' div contains the z-matrix calculation part.-->
 	<script type="text/javascript">
 	  	$("document").ready(function() {
 	        $('#calculation').load('water_z-matrix.html #t1');
@@ -16,7 +16,7 @@
 
 	
 	<script type="text/javascript">
-		  //Function to load gamess input file when submit button is clicked.
+		 //submit button action 
 		function submit(){
 			var molecule_name="water";
 			localStorage.setItem('molecule',molecule_name);
@@ -37,6 +37,7 @@
 	    
 		}
 
+		//calculation step two
 		function second(){
 			var a2 = document.getElementsByName("atom2")[0].value;
 			var num = document.getElementsByName("number")[0].value;
@@ -49,6 +50,7 @@
 			}
 		}
 
+		//calculation step three
 		function third(){
 			var a3 = document.getElementsByName("atom3")[0].value;
 			var num1 = document.getElementsByName("number_1")[0].value;

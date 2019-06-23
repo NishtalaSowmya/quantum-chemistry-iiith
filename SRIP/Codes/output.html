@@ -2,7 +2,32 @@
 <head>
 	<title>Gamess Output File</title>
 	<link rel="stylesheet" href="css/style.css">
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 
+<!--JS and css files  for  output_bk.html-->
+	<script  src="js/shCore.js"></script>
+	<script src="js/shBrushPlain.js"></script>
+
+	<link rel="stylesheet" href="css/shCore.css"/>
+	<link rel="stylesheet" href="css/shThemeDefault.css"/>
+	<script type="text/javascript">
+		SyntaxHighlighter.config.clipboardSwf = 'clipboard.swf';
+		SyntaxHighlighter.all();
+	</script>
+
+
+<!-- load container from output_bk.html-->
+	<script type="text/javascript">
+	  	$("document").ready(function() {
+	  		var x=localStorage.getItem('molecule');
+	  		if(x=="water"){
+	  			alert(x);
+	        	$('#frame2').load('output_bk.html #o1');
+	        }
+	    });
+	</script>
+
+	<!-- sumbit button action-->
 	<script type="text/javascript">
 		function submit(){
 			
@@ -50,8 +75,9 @@
 		
 	 	<h2> Generated GAMESS Output file  </h2>
 
-		<iframe src="output_bk.html" width="1000px" height="400px" frameborder="0"></iframe>
-		 <br/><br/>
+	 	<br><br><br>
+		<div id="frame2"></div>
+		 <br><br><br>
 		 
   		<input type="submit" value="NEXT" onclick="submit()"/> 
 		</center>

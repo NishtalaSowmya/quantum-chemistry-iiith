@@ -13,7 +13,7 @@ position:relative;
 padding-top:15px;
 margin-left:15px;
 width: 1250px;
-height:1400px;
+height:1300px;
 -moz-box-shadow: 10px 10px 5px #888888; /* Firefox 3.6 and earlier */
 -webkit-box-shadow: 10px 10px 5px #888888; /* Safari */
 box-shadow: 10px 10px 5px #888888;
@@ -142,6 +142,21 @@ select{
 
 #result2{
 	color:red;font-weight:300;font-size: 20px;padding-left: 480px;
+}
+
+/*inp.html */
+#frame1{
+	padding-left:100px;
+	padding-right: 100px;
+	padding-top:50px;
+	 
+}
+
+/*output.html*/
+#frame2{
+	overflow:scroll;
+	height:600px;
+	width:900px;
 }
 
 
