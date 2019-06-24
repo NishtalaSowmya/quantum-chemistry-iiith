@@ -1,6 +1,87 @@
-	<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
 	<title>Ammonia Molecule</title>
+	<meta charset="utf-8">
+
+	<link rel="stylesheet" href="css/style.css">
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+	
+	<!--load z-matrix_calc onto this page. 'calculation' div contains the z-matrix calculation part.-->
+	<script type="text/javascript">
+	  	$("document").ready(function() {
+	        $('#calculation').load('ammonia_z-matrix.html #amm1');
+	    });
+	</script>
+
+	
+	<script type="text/javascript">
+		 
+		//calculation step one
+		function first(){
+			var a1 = document.getElementsByName("atom1")[0].value;
+			if(a1=='N'){
+				$('#amm1').load('ammonia_z-matrix.html #amm2');
+				document.getElementById("result").innerHTML="<p id='result1'>Correct Answer</p>";
+			}
+			else{
+				document.getElementById("result").innerHTML="<p id='result2'>Incorrect Option, Try Again!</p>";
+			}
+			
+	    
+		}
+
+		//calculation step two
+		function second(){
+			var a2 = document.getElementsByName("atom2")[0].value;
+			var num = document.getElementsByName("number")[0].value;
+			if(a2=='H' && num=='1'){
+				$('#amm1').load('ammonia_z-matrix.html #amm3');
+				document.getElementById("result").innerHTML="<p id='result1'>Correct Answer</p>";
+			}
+			else{
+				document.getElementById("result").innerHTML="<p id='result2'>Incorrect Option, Try Again!</p>";
+			}
+		}
+
+		//calculation step three
+		function third(){
+			var a3 = document.getElementsByName("atom3")[0].value;
+			var num1 = document.getElementsByName("number_1")[0].value;
+			var num2 = document.getElementsByName("number_2")[0].value;
+			if(a3=='H' && num1=='1' && num2=='2'){
+				$('#amm1').load('ammonia_z-matrix.html #amm4');
+				document.getElementById("result").innerHTML="<p id='result1'>Correct Answer</p>";
+			}
+			else{
+				document.getElementById("result").innerHTML="<p id='result2'>Incorrect Option, Try Again!</p>";
+			}
+		}
+
+		//calculation step four
+		function fourth(){
+			var a4 = document.getElementsByName("atom4")[0].value;
+			var num1 = document.getElementsByName("number_1")[0].value;
+			var num2 = document.getElementsByName("number_2")[0].value;
+			var num3 = document.getElementsByName("number_3")[0].value;			
+			if(a4=='H' && num1=='1' && num2=='2' && num3=='3'){
+				$('#amm1').load('ammonia_z-matrix.html #amm5');
+				document.getElementById("result").innerHTML="<p id='result1'>Correct Answer</p>";
+			}
+			else{
+				document.getElementById("result").innerHTML="<p id='result2'>Incorrect Option, Try Again!</p>";
+			}
+		}
+
+		//submit button action 
+		function submit(){
+			var molecule_name="ammonia";
+			localStorage.setItem('molecule',molecule_name);
+			window.document.location='./gamessinput.html';
+		}
+
+	</script>
+
 </head>
 
 <body>
@@ -66,23 +147,19 @@
 				<tr>
 				
 					<td colspan="2" align="center">
-				<br><br><br>
-						<p style="font-size: 24px;color: #000000;font-weight: 700;padding-left: 350px">Z-matrix calculation</p>
-						<p style="color: brown;font-weight: 300;font-size: 20px;padding-left: 350px">Select <span style="padding-right: 50px"></span>
-							<select>
-							  <option value="O">O</option>
-							  <option value="H">H</option>
-							  <option value="C">O</option>
-							  <option value="N">H</option>							  
-							</select>
-							<input type="submit" class="render-button" name="render" value="Render"/>
-							<p style="font-size: 15px;padding-left: 350px">Choose atoms According to numbering provided in figure</p>
-						</p>
+					<br><br><br>
+						<p style="font-size: 24px;color: #000000;font-weight: 700;padding-left: 350px">Z-matrix calculation</p>		
 					</td>
-					
 				</tr>
-
 			</table>
+
+			<div id="calculation" >
+
+			</div>	
+
+				
+				<p style="font-size: 15px;padding-left: 350px">Choose atoms According to numbering provided in figure</p>	
+				<p id="result"> </p>
 		</div>
 
 		

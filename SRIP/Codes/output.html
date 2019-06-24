@@ -21,8 +21,22 @@
 	  	$("document").ready(function() {
 	  		var x=localStorage.getItem('molecule');
 	  		if(x=="water"){
-	  			alert(x);
 	        	$('#frame2').load('output_bk.html #o1');
+	        }
+	        else if(x=="ammonia"){
+	        	$('#frame2').load('output_bk.html #o2');
+	        }
+	        else if(x=="formaldehyde"){
+	        	$('#frame2').load('output_bk.html #o3');
+	        }
+	        else if(x=="methane"){
+	        	$('#frame2').load('output_bk.html #o4');
+	        }
+	        else if(x=="benzene"){
+	        	$('#frame2').load('output_bk.html #o5');
+	        }
+	        else if(x=="c-60"){
+	        	$('#frame2').load('output_bk.html #o6');
 	        }
 	    });
 	</script>
