@@ -20,6 +20,18 @@ box-shadow: 10px 10px 5px #888888;
 
 }
 
+#container_benz {
+position:relative;
+padding-top:15px;
+margin-left:15px;
+width: 1250px;
+height:1550px;
+-moz-box-shadow: 10px 10px 5px #888888; /* Firefox 3.6 and earlier */
+-webkit-box-shadow: 10px 10px 5px #888888; /* Safari */
+box-shadow: 10px 10px 5px #888888;
+
+}
+
 
 
 #follow
@@ -128,7 +140,7 @@ select{
 }
 
 
-/*water.html : calculation */
+/*water_z-matrix.html : calculation */
 .values p{
 	color: brown;
 	font-weight: 300;
@@ -157,6 +169,37 @@ select{
 	overflow:scroll;
 	height:600px;
 	width:900px;
+}
+
+
+/*benzene.html*/
+#benz-table{
+	width:1100px;
+}
+
+
+#calculation_benz
+{
+	margin-left:100px;
+}
+
+/*benzeen_z-matrix.html*/
+.c-atoms{
+	width:100px;
+	height:100px;
+	
+}
+.h-atoms{
+	width:100px;
+	height:100px;
+
+}
+
+.values_benz p{
+	color: brown;
+	font-weight: 300;
+	font-size: 20px;
+	
 }
 
 
