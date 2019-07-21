@@ -119,11 +119,7 @@ div #molecule a:hover
 	float:left;
 }
 
-#simulator{
-	width: 450px;
-	height: 450px;
-	background-color: #000000;
-}
+
 
 select{
 	width:40px;
@@ -202,6 +198,13 @@ select{
 	
 }
 
+
+
+/*simulator*/
+canvas { 
+	width:100%; 
+	height: 100%; 
+}
 
 #content
 {
