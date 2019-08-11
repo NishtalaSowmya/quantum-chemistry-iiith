@@ -2,6 +2,10 @@
 <head>
 	<title>Energy Calculations</title>
 	<link rel="stylesheet" href="css/style.css">
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="js/three.js"></script>
+	<script src="js/OrbitControls.js"></script>
+	<script src="js/final_simulator.js"></script>
 	
 </head>
 
@@ -26,11 +30,7 @@
 				<li><a href="methane.html">METHANE</a></li>
 				<li><a href="benzene.html">BENZENE</a></li>
 				<li><a href="c-60.html">C-60</a></li>				
-			
 
-				<!--
-				<li id="blank">LOGIN</li>
-				<li><a href="#">Student</a></li>-->
 				<li><a href="#" style="border-top-right-radius:0.8em;border-bottom-right-radius:0.8em;padding-left:00px ">EXP 4</a></li>
 				
 			</ul>
@@ -55,12 +55,13 @@
 	    <table border="0" >
     	  <tr>
       			<td align="left">
-						<article id="simulator">      	
+						<article id="simulator">  
+							
 						</article>
 	 			</td>
 	 			<td  align="right">
 					  <div id="pointer_div" onmousedown = 'GetCoordinates(event);'  style = "width:450px;height:350px;padding-left: 150px"  >
-					  	<img src="images/en.png" width="450px" height ="350px" id="cross" />
+					  	<img src="images/en.png" width="450px" height ="350px" id="cross"/>
 					  </div>
 					  <div style="text-align:center;font-size:18px;">
 						<br/>Click on the data points for corresponding structure
@@ -70,8 +71,30 @@
     	</table>
 	<br/><br/>
 	</center>
-	</div><!--content ends-->
+	</div>
+	<!--content ends-->
 	
+	<script type="text/javascript">
+								if(present_molecule=="water"){
+									water();
+								}
+								else if(present_molecule=="ammonia"){
+									ammonia();
+								}
+								else if(present_molecule=="formaldehyde"){
+									formaldehyde();
+								}
+								else if(present_molecule=="methane"){
+									methane();
+								}
+								else if(present_molecule=="benzene"){
+									benzene();
+								}
+								else if(present_molecule=="c-60"){
+									c_60();
+								}
+
+	</script>
 
 
 <!--footer starts (manual)-->
