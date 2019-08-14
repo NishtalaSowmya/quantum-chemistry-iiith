@@ -6,96 +6,10 @@
 
 	<link rel="stylesheet" href="css/style.css">
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="js/methane.js"></script>>
+	<script src="js/three.js"></script>
+	<script src="js/OrbitControls.js"></script>
 	
-	<!--load z-matrix_calc onto this page. 'calculation' div contains the z-matrix calculation part.-->
-	<script type="text/javascript">
-	  	$("document").ready(function() {
-	        $('#calculation').load('methane_z-matrix.html #meth1');
-	    });
-	</script>
-
-	
-	<script type="text/javascript">
-		 
-		//calculation step one
-		function first(){
-			var a1 = document.getElementsByName("atom1")[0].value;
-			if(a1=='C'){
-				$('#meth1').load('methane_z-matrix.html #meth2');
-				document.getElementById("result").innerHTML="<p id='result1'>Correct Answer</p>";
-			}
-			else{
-				document.getElementById("result").innerHTML="<p id='result2'>Incorrect Option, Try Again!</p>";
-			}
-			
-	    
-		}
-
-		//calculation step two
-		function second(){
-			var a2 = document.getElementsByName("atom2")[0].value;
-			var num = document.getElementsByName("number")[0].value;
-			if(a2=='H' && num=='1'){
-				$('#meth1').load('methane_z-matrix.html #meth3');
-				document.getElementById("result").innerHTML="<p id='result1'>Correct Answer</p>";
-			}
-			else{
-				document.getElementById("result").innerHTML="<p id='result2'>Incorrect Option, Try Again!</p>";
-			}
-		}
-
-		//calculation step three
-		function third(){
-			var a3 = document.getElementsByName("atom3")[0].value;
-			var num1 = document.getElementsByName("number_1")[0].value;
-			var num2 = document.getElementsByName("number_2")[0].value;
-			if(a3=='H' && num1=='1' && num2=='2'){
-				$('#meth1').load('methane_z-matrix.html #meth4');
-				document.getElementById("result").innerHTML="<p id='result1'>Correct Answer</p>";
-			}
-			else{
-				document.getElementById("result").innerHTML="<p id='result2'>Incorrect Option, Try Again!</p>";
-			}
-		}
-
-		//calculation step four
-		function fourth(){
-			var a4 = document.getElementsByName("atom4")[0].value;
-			var num1 = document.getElementsByName("number_1")[0].value;
-			var num2 = document.getElementsByName("number_2")[0].value;
-			var num3 = document.getElementsByName("number_3")[0].value;			
-			if(a4=='H' && num1=='1' && num2=='2' && num3=='3'){
-				$('#meth1').load('methane_z-matrix.html #meth5');
-				document.getElementById("result").innerHTML="<p id='result1'>Correct Answer</p>";
-			}
-			else{
-				document.getElementById("result").innerHTML="<p id='result2'>Incorrect Option, Try Again!</p>";
-			}
-		}
-
-		function fifth(){
-			var a5 = document.getElementsByName("atom5")[0].value;
-			var num1 = document.getElementsByName("number_1")[0].value;
-			var num2 = document.getElementsByName("number_2")[0].value;
-			var num3 = document.getElementsByName("number_3")[0].value;			
-			if(a5=='H' && num1=='1' && num2=='2' && num3=='3'){
-				$('#meth1').load('methane_z-matrix.html #meth6');
-				document.getElementById("result").innerHTML="<p id='result1'>Correct Answer</p>";
-			}
-			else{
-				document.getElementById("result").innerHTML="<p id='result2'>Incorrect Option, Try Again!</p>";
-			}
-		}
-
-		//submit button action 
-		function submit(){
-			var molecule_name="methane";
-			localStorage.setItem('molecule',molecule_name);
-			window.document.location='./gamessinput.html';
-		}
-
-	</script>
-
 </head>
 
 
@@ -142,20 +56,21 @@
 						<br><br><br>      <article id="simulator"></article>
 					</td>
 					<td align="justify" style="padding-left:100px">
-						<input type="radio" class="spacefill" name="spacefill" value="20%"checked>spacefill 20%<br>
-						<input type="radio" class="spacefill" name="spacefill" value="25%">spacefill 25%<br>
-						<input type="radio" class="spacefill" name="spacefill" value="50%">spacefill 50%<br>
-						<input type="radio" class="spacefill" name="spacefill" value="75%">spacefill 75%<br>
-						<br><br>
+						<form name="control_options" id="control_options">
+							<input type="radio" class="spacefill" name="spacefill" value="90 55" checked>spacefill 20%<br>
+							<input type="radio" class="spacefill" name="spacefill" value="110 70">spacefill 25%<br>
+							<input type="radio" class="spacefill" name="spacefill" value="130 90">spacefill 50%<br>
+							<input type="radio" class="spacefill" name="spacefill" value="160 110">spacefill 75%<br>
+							<br><br>
 
-						<input type="radio" class="wireframe" name="wireframe" value="off">wireframe off<br>
-						<input type="radio" class="wireframe" name="wireframe" value="on">wireframe on <br>
-						<input type="radio" class="wireframe" name="wireframe" value="0.1"checked>wireframe 0.1<br>
-						<input type="radio" class="wireframe" name="wireframe" value="0.3">wireframe 0.3<br>
-						<br><br>
+							<input type="radio" class="wireframe" name="wireframe" value="0">wireframe off<br>
+							<input type="radio" class="wireframe" name="wireframe" value="5">wireframe on <br>
+							<input type="radio" class="wireframe" name="wireframe" value="12" checked="">wireframe 0.1<br>
+							<input type="radio" class="wireframe" name="wireframe" value="30">wireframe 0.3<br>
+							<br><br>
 
-						<input type="checkbox" name="spin" value="spin">spin
-					
+							<input type="checkbox" id="spin" value="spin" >spin
+						</form>
 					</td>
 				</tr>
 
@@ -210,5 +125,170 @@
 		</div>		<!--footer ends -->
 	
 	</div>
+
+	<script type="text/javascript">
+		
+	// Camera, Scene, Renderer
+
+		var camera = new THREE.PerspectiveCamera(35, (window.innerWidth/4) / (window.innerHeight/2), 0.1, 3000);
+		var scene = new THREE.Scene();
+		
+		var renderer = new THREE.WebGLRenderer();
+		renderer.setPixelRatio(window.devicePixelRatio);
+		renderer.setSize(window.innerWidth/4, window.innerHeight/2);
+		document.getElementById('simulator').appendChild(renderer.domElement);
+
+		//var controls = new THREE.OrbitControls(camera, renderer.domElement);
+
+		
+	//initial dimensions
+		var C_radius = 90;
+		var H_radius = 55;
+		var bond_radius = 10;
+		molecule(C_radius, H_radius, bond_radius);
+
+	//update the controls
+		document.control_options.onclick =  function (){
+		    var sp = document.control_options.spacefill.value.split(" ");
+		    var wr = document.control_options.wireframe.value; 
+		    scene.remove.apply(scene, scene.children);  
+			molecule(sp[0],sp[1],wr);			
+		}
+
+	//Creating molecule
+		function molecule(C_radius,H_radius,bond_radius){
+			
+		//light on the screen
+			var light = new THREE.AmbientLight(0xffffff, 0.5);
+			scene.add(light);
+			var light1 = new THREE.PointLight(0xffffff, 0.5);
+			scene.add(light1);
+
+		//Creating atoms
+			var carbon_Geo = new THREE.SphereGeometry( C_radius, 50, 200 ); //Geometry
+			var hydrogen_Geo = new THREE.SphereGeometry( H_radius, 50, 200 );
+
+			var hydrogen_material = new THREE.MeshPhongMaterial({color: '#C0C0C0'}); //Material
+			var carbon_material = new THREE.MeshPhongMaterial({color: 'yellow'}); 
+
+			var hydrogen_mesh= new THREE.Mesh(hydrogen_Geo, ); //Mesh
+			var carbon_mesh = new THREE.Mesh(carbon_Geo, );
+
+		//Adjusting the position (matrix)
+			carbon_mesh.updateMatrix();
+			hydrogen_mesh.position.y=225;
+			hydrogen_mesh.updateMatrix();
+
+		//Creating Bonds
+			var bond_Geo = new THREE.CylinderGeometry( bond_radius, bond_radius, 250, 32);
+			var bond_mesh = new THREE.Mesh(bond_Geo, );
+			bond_mesh.position.y=100;
+			bond_mesh.updateMatrix();
+
+		//Merging bond and Hydrogen atoms
+			var temp1 = new THREE.Geometry();
+			temp1.merge(hydrogen_mesh.geometry, hydrogen_mesh.matrix);
+			temp1.merge(bond_mesh.geometry, bond_mesh.matrix);
+			
+			//H1+bond
+			var temp_mesh1 = new THREE.Mesh(temp1, );
+			temp_mesh1.applyMatrix( new THREE.Matrix4().makeRotationZ( Math.PI / 1.3) );
+			temp_mesh1.applyMatrix( new THREE.Matrix4().makeRotationY( -Math.PI / 1 ) );
+			temp_mesh1.applyMatrix( new THREE.Matrix4().makeRotationX( Math.PI / 3.5 ) );
+
+			//H2+bond
+			var temp_mesh2 = new THREE.Mesh(temp1, );
+			
+			var temp_mesh3 = new THREE.Mesh(temp1, );
+			temp_mesh3.applyMatrix( new THREE.Matrix4().makeRotationZ( Math.PI/ 1.3 ) );
+			temp_mesh3.applyMatrix( new THREE.Matrix4().makeRotationY( Math.PI / 2 ) );
+			temp_mesh3.applyMatrix( new THREE.Matrix4().makeRotationX( -Math.PI / 12) );
+
+			var temp_mesh4 = new THREE.Mesh(temp1, );
+			temp_mesh2.applyMatrix( new THREE.Matrix4().makeRotationZ( -Math.PI / 1.3 ) );
+			temp_mesh2.applyMatrix( new THREE.Matrix4().makeRotationY( Math.PI / 1 ) );
+			temp_mesh2.applyMatrix( new THREE.Matrix4().makeRotationX( Math.PI / 3.5 ) );
+ 
+
+        //Merging the atoms 
+			var geo=new THREE.Geometry();
+
+			if(calc==0 || calc==5){
+				
+				//whole molecule
+				geo.merge(temp_mesh2.geometry,temp_mesh2.matrix,0);
+				geo.merge(temp_mesh1.geometry,temp_mesh1.matrix,0);
+				geo.merge(temp_mesh3.geometry,temp_mesh3.matrix,0);
+				geo.merge(temp_mesh4.geometry,temp_mesh4.matrix,0);
+				geo.merge(carbon_mesh.geometry,carbon_mesh.matrix,1);
+
+				var mesh = new THREE.Mesh(geo, new THREE.MeshFaceMaterial([hydrogen_material,carbon_material]));
+			}
+
+			else if(calc==1){
+				// C atom
+				geo.merge(carbon_mesh.geometry,carbon_mesh.matrix);
+				var mesh = new THREE.Mesh(geo,carbon_material);
+
+			}
+
+			else if(calc==2){
+				// C atom and 1 H atom
+				geo.merge(temp_mesh1.geometry,temp_mesh1.matrix,0);
+				geo.merge(carbon_mesh.geometry,carbon_mesh.matrix,1);
+				var mesh = new THREE.Mesh(geo, new THREE.MeshFaceMaterial([hydrogen_material,carbon_material]));
+			}
+
+			else if(calc==3){
+				// C atom and 2 H atoms
+				geo.merge(temp_mesh2.geometry,temp_mesh2.matrix,0);
+				geo.merge(temp_mesh1.geometry,temp_mesh1.matrix,0);
+				geo.merge(carbon_mesh.geometry,carbon_mesh.matrix,1);
+				var mesh = new THREE.Mesh(geo, new THREE.MeshFaceMaterial([hydrogen_material,carbon_material]));
+			}
+
+			else if(calc==4){
+				// C atom and 3 H atoms
+				geo.merge(temp_mesh3.geometry,temp_mesh3.matrix,0);
+				geo.merge(temp_mesh2.geometry,temp_mesh2.matrix,0);
+				geo.merge(temp_mesh1.geometry,temp_mesh1.matrix,0);
+				geo.merge(carbon_mesh.geometry,carbon_mesh.matrix,1);
+				var mesh = new THREE.Mesh(geo, new THREE.MeshFaceMaterial([hydrogen_material,carbon_material]));
+			}
+
+			scene.add(mesh);
+			mesh.position.set(0,50,-1200);
+
+			
+		//Animate
+			var animate= function() {
+			    requestAnimationFrame( animate );
+			  	renderer.render( scene, camera );
+
+				render();
+			}
+
+			function render(){
+				if(document.getElementById('spin').checked==true){			
+					mesh.rotation.y+=0.03;
+				}
+					
+			}
+			
+			animate();
+		}
+
+		// Event Listener (on screen resize)
+	  	window.addEventListener( 'resize', onWindowResize, false );
+
+		// Resize
+		function onWindowResize() {
+			camera.aspect = window.innerWidth / window.innerHeight;
+			camera.updateProjectionMatrix();
+			renderer.setSize( window.innerWidth/4, window.innerHeight/2 );
+		}
+
+	</script>
+
 </body>
 </html>

@@ -298,6 +298,91 @@ function methane(){
 		renderer.setPixelRatio(window.devicePixelRatio);
 		renderer.setSize(window.innerWidth/4, window.innerHeight/2);
 		document.getElementById('simulator').appendChild(renderer.domElement);
+		
+		//initial dimensions
+		var C_radius = 90;
+		var H_radius = 55;
+		var bond_radius = 10;
+		
+	//Creating molecule
+		
+		//light on the screen
+			var light = new THREE.AmbientLight(0xffffff, 0.5);
+			scene.add(light);
+			var light1 = new THREE.PointLight(0xffffff, 0.5);
+			scene.add(light1);
+
+		//Creating atoms
+			var carbon_Geo = new THREE.SphereGeometry( C_radius, 50, 200 ); //Geometry
+			var hydrogen_Geo = new THREE.SphereGeometry( H_radius, 50, 200 );
+
+			var hydrogen_material = new THREE.MeshPhongMaterial({color: '#C0C0C0'}); //Material
+			var carbon_material = new THREE.MeshPhongMaterial({color: 'yellow'}); 
+
+			var hydrogen_mesh= new THREE.Mesh(hydrogen_Geo, ); //Mesh
+			var carbon_mesh = new THREE.Mesh(carbon_Geo, );
+
+		//Adjusting the position (matrix)
+			carbon_mesh.updateMatrix();
+			hydrogen_mesh.position.y=225;
+			hydrogen_mesh.updateMatrix();
+
+		//Creating Bonds
+			var bond_Geo = new THREE.CylinderGeometry( bond_radius, bond_radius, 250, 32);
+			var bond_mesh = new THREE.Mesh(bond_Geo, );
+			bond_mesh.position.y=100;
+			bond_mesh.updateMatrix();
+
+		//Merging bond and Hydrogen atoms
+			var temp1 = new THREE.Geometry();
+			temp1.merge(hydrogen_mesh.geometry, hydrogen_mesh.matrix);
+			temp1.merge(bond_mesh.geometry, bond_mesh.matrix);
+			
+			//H1+bond
+			var temp_mesh1 = new THREE.Mesh(temp1, );
+			temp_mesh1.applyMatrix( new THREE.Matrix4().makeRotationZ( Math.PI / 1.3) );
+			temp_mesh1.applyMatrix( new THREE.Matrix4().makeRotationY( -Math.PI / 1 ) );
+			temp_mesh1.applyMatrix( new THREE.Matrix4().makeRotationX( Math.PI / 3.5 ) );
+
+			//H2+bond
+			var temp_mesh2 = new THREE.Mesh(temp1, );
+			
+			var temp_mesh3 = new THREE.Mesh(temp1, );
+			temp_mesh3.applyMatrix( new THREE.Matrix4().makeRotationZ( Math.PI/ 1.3 ) );
+			temp_mesh3.applyMatrix( new THREE.Matrix4().makeRotationY( Math.PI / 2 ) );
+			temp_mesh3.applyMatrix( new THREE.Matrix4().makeRotationX( -Math.PI / 12) );
+
+			var temp_mesh4 = new THREE.Mesh(temp1, );
+			temp_mesh2.applyMatrix( new THREE.Matrix4().makeRotationZ( -Math.PI / 1.3 ) );
+			temp_mesh2.applyMatrix( new THREE.Matrix4().makeRotationY( Math.PI / 1 ) );
+			temp_mesh2.applyMatrix( new THREE.Matrix4().makeRotationX( Math.PI / 3.5 ) );
+ 
+
+        //Merging the atoms 
+			var geo=new THREE.Geometry();
+
+				geo.merge(temp_mesh2.geometry,temp_mesh2.matrix,0);
+				geo.merge(temp_mesh1.geometry,temp_mesh1.matrix,0);
+				geo.merge(temp_mesh3.geometry,temp_mesh3.matrix,0);
+				geo.merge(temp_mesh4.geometry,temp_mesh4.matrix,0);
+				geo.merge(carbon_mesh.geometry,carbon_mesh.matrix,1);
+
+				var mesh = new THREE.Mesh(geo, new THREE.MeshFaceMaterial([hydrogen_material,carbon_material]));
+
+			scene.add(mesh);
+			mesh.position.set(0,50,-1200);
+			renderer.render( scene, camera );
+
+		
+		// Event Listener (on screen resize)
+	  	window.addEventListener( 'resize', onWindowResize, false );
+
+		// Resize
+		function onWindowResize() {
+			camera.aspect = window.innerWidth / window.innerHeight;
+			camera.updateProjectionMatrix();
+			renderer.setSize( window.innerWidth/4, window.innerHeight/2 );
+		}
 	
 }
 
