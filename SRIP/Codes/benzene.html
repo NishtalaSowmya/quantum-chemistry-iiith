@@ -4,208 +4,12 @@
 	<title>Benzene Molecule</title>
 	<meta charset="utf-8">
 
-	<link rel="stylesheet" href="css/style.css">
+	<<link rel="stylesheet" href="css/style.css">
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="js/benzene.js"></script>>
+	<script src="js/three.js"></script>
+	<script src="js/OrbitControls.js"></script>
 	
-	<!--load z-matrix_calc onto this page. 'calculation' div contains the z-matrix calculation part.-->
-	<script type="text/javascript">
-	  	$("document").ready(function() {
-	        $('.c-atoms').load('benzene_z-matrix.html #ben1');
-	    });
-	</script>
-
-
-
-	<!-- ***********************************calculation for c atoms***************************************-->
-	<script type="text/javascript">
-		 
-		//calculation step one
-		function first(){
-			var a1 = document.getElementsByName("atom1")[0].value;
-			if(a1=='C'){
-				$('#ben1').load('benzene_z-matrix.html #ben1-1');
-				document.getElementById("result").innerHTML="<p id='result1'>Correct Answer</p>";
-			}
-			else{
-				document.getElementById("result").innerHTML="<p id='result2'>Incorrect Option, Try Again!</p>";
-			}
-			
-	    
-		}
-
-		//calculation step two
-		function one1(){
-			var a2 = document.getElementsByName("atom2")[0].value;
-			var num = document.getElementsByName("number")[0].value;
-			if(a2=='C' && num=='1'){
-				$('#ben1').load('benzene_z-matrix.html #ben1-2');
-				document.getElementById("result").innerHTML="<p id='result1'>Correct Answer</p>";
-			}
-			else{
-				document.getElementById("result").innerHTML="<p id='result2'>Incorrect Option, Try Again!</p>";
-			}
-		}
-
-		//calculation step three
-		function one2(){
-			var a3 = document.getElementsByName("atom3")[0].value;
-			var num1 = document.getElementsByName("number_1")[0].value;
-			var num2 = document.getElementsByName("number_2")[0].value;
-			if(a3=='C' && num1=='2' && num2=='1'){
-				$('#ben1').load('benzene_z-matrix.html #ben1-3');
-				document.getElementById("result").innerHTML="<p id='result1'>Correct Answer</p>";
-			}
-			else{
-				document.getElementById("result").innerHTML="<p id='result2'>Incorrect Option, Try Again!</p>";
-			}
-		}
-
-		//calculation step four
-		function one3(){
-			var a4 = document.getElementsByName("atom4")[0].value;
-			var num1 = document.getElementsByName("number_1")[0].value;
-			var num2 = document.getElementsByName("number_2")[0].value;
-			var num3 = document.getElementsByName("number_3")[0].value;			
-			if(a4=='C' && num1=='3' && num2=='2' && num3=='1'){
-				$('#ben1').load('benzene_z-matrix.html #ben1-4');
-				document.getElementById("result").innerHTML="<p id='result1'>Correct Answer</p>";
-			}
-			else{
-				document.getElementById("result").innerHTML="<p id='result2'>Incorrect Option, Try Again!</p>";
-			}
-		}
-
-		
-		function one4(){
-			var a5 = document.getElementsByName("atom5")[0].value;
-			var num1 = document.getElementsByName("number_1")[0].value;
-			var num2 = document.getElementsByName("number_2")[0].value;
-			var num3 = document.getElementsByName("number_3")[0].value;			
-			if(a5=='C' && num1=='4' && num2=='3' && num3=='2'){
-				$('#ben1').load('benzene_z-matrix.html #ben1-5');
-				document.getElementById("result").innerHTML="<p id='result1'>Correct Answer</p>";
-			}
-			else{
-				document.getElementById("result").innerHTML="<p id='result2'>Incorrect Option, Try Again!</p>";
-			}
-		}
-
-		function one5(){
-			var a6 = document.getElementsByName("atom6")[0].value;
-			var num1 = document.getElementsByName("number_1")[0].value;
-			var num2 = document.getElementsByName("number_2")[0].value;
-			var num3 = document.getElementsByName("number_3")[0].value;			
-			if(a6=='C' && num1=='1' && num2=='2' && num3=='3'){
-				$('#ben1').load('benzene_z-matrix.html #ben1-final');  //completion of C-atoms
-				$('.h-atoms').load('benzene_z-matrix.html #ben2-1');   //start of H-atoms
-				document.getElementById("result").innerHTML="<p id='result1'>Correct Answer</p>";
-			}
-			else{
-				document.getElementById("result").innerHTML="<p id='result2'>Incorrect Option, Try Again!</p>";
-			}
-		}
-
-		//***************************************calculation for H atoms********************************************
-	
-	    function two1(){
-			var a7 = document.getElementsByName("atom7")[0].value;
-			var num1 = document.getElementsByName("number_1")[0].value;
-			var num2 = document.getElementsByName("number_2")[0].value;
-			var num3 = document.getElementsByName("number_3")[0].value;			
-			if(a7=='H' && num1=='1' && num2=='6' && num3=='5'){
-				$('#ben1').load('benzene_z-matrix.html #ben1-final');  //completion of C-atoms
-				$('#ben2-1').load('benzene_z-matrix.html #ben2-2');   //start of H-atoms
-				document.getElementById("result").innerHTML="<p id='result1'>Correct Answer</p>";
-			}
-			else{
-				document.getElementById("result").innerHTML="<p id='result2'>Incorrect Option, Try Again!</p>";
-			}
-		}
-
-		function two2(){
-			var a8 = document.getElementsByName("atom8")[0].value;
-			var num1 = document.getElementsByName("number_1")[0].value;
-			var num2 = document.getElementsByName("number_2")[0].value;
-			var num3 = document.getElementsByName("number_3")[0].value;			
-			if(a8=='H' && num1=='2' && num2=='1' && num3=='6'){
-				$('#ben1').load('benzene_z-matrix.html #ben1-final');  
-				$('#ben2-1').load('benzene_z-matrix.html #ben2-3');   
-				document.getElementById("result").innerHTML="<p id='result1'>Correct Answer</p>";
-			}
-			else{
-				document.getElementById("result").innerHTML="<p id='result2'>Incorrect Option, Try Again!</p>";
-			}
-		}
-
-		function two3(){
-			var a9 = document.getElementsByName("atom9")[0].value;
-			var num1 = document.getElementsByName("number_1")[0].value;
-			var num2 = document.getElementsByName("number_2")[0].value;
-			var num3 = document.getElementsByName("number_3")[0].value;			
-			if(a9=='H' && num1=='3' && num2=='2' && num3=='1'){
-				$('#ben1').load('benzene_z-matrix.html #ben1-final');  
-				$('#ben2-1').load('benzene_z-matrix.html #ben2-4');   
-				document.getElementById("result").innerHTML="<p id='result1'>Correct Answer</p>";
-			}
-			else{
-				document.getElementById("result").innerHTML="<p id='result2'>Incorrect Option, Try Again!</p>";
-			}
-		}
-
-		function two4(){
-			var a10 = document.getElementsByName("atom10")[0].value;
-			var num1 = document.getElementsByName("number_1")[0].value;
-			var num2 = document.getElementsByName("number_2")[0].value;
-			var num3 = document.getElementsByName("number_3")[0].value;			
-			if(a10=='H' && num1=='4' && num2=='3' && num3=='2'){
-				$('#ben1').load('benzene_z-matrix.html #ben1-final');  
-				$('#ben2-1').load('benzene_z-matrix.html #ben2-5');   
-				document.getElementById("result").innerHTML="<p id='result1'>Correct Answer</p>";
-			}
-			else{
-				document.getElementById("result").innerHTML="<p id='result2'>Incorrect Option, Try Again!</p>";
-			}
-		}
-
-		function two5(){
-			var a11 = document.getElementsByName("atom11")[0].value;
-			var num1 = document.getElementsByName("number_1")[0].value;
-			var num2 = document.getElementsByName("number_2")[0].value;
-			var num3 = document.getElementsByName("number_3")[0].value;			
-			if(a11=='H' && num1=='5' && num2=='4' && num3=='3'){
-				$('#ben1').load('benzene_z-matrix.html #ben1-final');  //completion of C-atoms
-				$('#ben2-1').load('benzene_z-matrix.html #ben2-6');   //start of H-atoms
-				document.getElementById("result").innerHTML="<p id='result1'>Correct Answer</p>";
-			}
-			else{
-				document.getElementById("result").innerHTML="<p id='result2'>Incorrect Option, Try Again!</p>";
-			}
-		}
-
-		function two6(){
-			var a12 = document.getElementsByName("atom12")[0].value;
-			var num1 = document.getElementsByName("number_1")[0].value;
-			var num2 = document.getElementsByName("number_2")[0].value;
-			var num3 = document.getElementsByName("number_3")[0].value;			
-			if(a12=='H' && num1=='6' && num2=='1' && num3=='2'){
-				$('#ben1').load('benzene_z-matrix.html #ben1-final');  //completion of C-atoms
-				$('#ben2-1').load('benzene_z-matrix.html #ben2-final');   //start of H-atoms
-				document.getElementById("result").innerHTML="<p id='result1'>Correct Answer</p>";
-			}
-			else{
-				document.getElementById("result").innerHTML="<p id='result2'>Incorrect Option, Try Again!</p>";
-			}
-		}
-
-		//submit button action 
-		function submit(){
-			var molecule_name="benzene";
-			localStorage.setItem('molecule',molecule_name);
-			window.document.location='./gamessinput.html';
-		}
-
-	</script>
-
 <body>
 	<link rel="stylesheet" href="css/style.css">
 	<div id="container_benz" style="background-color: #ffffff">
@@ -249,20 +53,21 @@
 						<br><br><br>      <article id="simulator"></article>
 					</td>
 					<td align="justify" style="padding-left:100px">
-						<input type="radio" class="spacefill" name="spacefill" value="20%" checked>spacefill 20%<br>
-						<input type="radio" class="spacefill" name="spacefill" value="25%">spacefill 25%<br>
-						<input type="radio" class="spacefill" name="spacefill" value="50%">spacefill 50%<br>
-						<input type="radio" class="spacefill" name="spacefill" value="75%">spacefill 75%<br>
-						<br><br>
+						<form name="control_options" id="control_options">
+							<input type="radio" class="spacefill" name="spacefill" value="90 55" checked>spacefill 20%<br>
+							<input type="radio" class="spacefill" name="spacefill" value="110 70">spacefill 25%<br>
+							<input type="radio" class="spacefill" name="spacefill" value="130 90">spacefill 50%<br>
+							<input type="radio" class="spacefill" name="spacefill" value="160 110">spacefill 75%<br>
+							<br><br>
 
-						<input type="radio" class="wireframe" name="wireframe" value="off">wireframe off<br>
-						<input type="radio" class="wireframe" name="wireframe" value="on">wireframe on <br>
-						<input type="radio" class="wireframe" name="wireframe" value="0.1"checked>wireframe 0.1<br>
-						<input type="radio" class="wireframe" name="wireframe" value="0.3">wireframe 0.3<br>
-						<br><br>
+							<input type="radio" class="wireframe" name="wireframe" value="0">wireframe off<br>
+							<input type="radio" class="wireframe" name="wireframe" value="5">wireframe on <br>
+							<input type="radio" class="wireframe" name="wireframe" value="12" checked="">wireframe 0.1<br>
+							<input type="radio" class="wireframe" name="wireframe" value="30">wireframe 0.3<br>
+							<br><br>
 
-						<input type="checkbox" name="spin" value="spin">spin
-					
+							<input type="checkbox" id="spin" value="spin" >spin
+						</form>
 					</td>
 				</tr>
 
@@ -324,5 +129,484 @@
 		</div>		<!--footer ends -->
 	
 	</div>
+
+	<script type="text/javascript">
+		
+	// Camera, Scene, Renderer
+
+		var camera = new THREE.PerspectiveCamera(35, (window.innerWidth/4) / (window.innerHeight/2), 0.1, 3000);
+		var scene = new THREE.Scene();
+		
+		var renderer = new THREE.WebGLRenderer();
+		renderer.setPixelRatio(window.devicePixelRatio);
+		renderer.setSize(window.innerWidth/4, window.innerHeight/2);
+		document.getElementById('simulator').appendChild(renderer.domElement);
+
+		//var controls = new THREE.OrbitControls(camera, renderer.domElement);
+
+		
+	//initial dimensions
+		var C_radius = 70;
+		var H_radius = 55;
+		var bond_radius = 10;
+		molecule(C_radius, H_radius, bond_radius);
+
+	//update the controls
+		document.control_options.onclick =  function (){
+		    var sp = document.control_options.spacefill.value.split(" ");
+		    var wr = document.control_options.wireframe.value; 
+		    scene.remove.apply(scene, scene.children);  
+			molecule(sp[0],sp[1],wr);			
+		}
+
+	//Creating molecule
+		function molecule(C_radius,H_radius,bond_radius){
+			
+		//light on the screen
+			var light = new THREE.AmbientLight(0xffffff, 0.5);
+			scene.add(light);
+			var light1 = new THREE.PointLight(0xffffff, 0.5);
+			scene.add(light1);
+
+		//Creating atoms
+			var carbon_Geo = new THREE.SphereGeometry( C_radius, 50, 200 ); //Geometry
+			var hydrogen_Geo = new THREE.SphereGeometry( H_radius, 50, 200 );
+
+			var hydrogen_material = new THREE.MeshPhongMaterial({color: '#C0C0C0'}); //Material
+			var carbon_material = new THREE.MeshPhongMaterial({color: 'yellow'}); 
+
+			var hydrogen_mesh= new THREE.Mesh(hydrogen_Geo, ); //Mesh
+			var carbon_mesh = new THREE.Mesh(carbon_Geo, );
+			
+
+		//Adjusting the position (matrix)
+			carbon_mesh.updateMatrix();
+			
+			hydrogen_mesh.position.y=225;
+			hydrogen_mesh.updateMatrix();
+		
+		//Creating Bonds
+			var bond_Geo = new THREE.CylinderGeometry( bond_radius, bond_radius, 250, 32);
+			var bond_mesh = new THREE.Mesh(bond_Geo, );
+			bond_mesh.position.y=100;
+				
+			bond_mesh.updateMatrix();
+
+		    //Merging bond and Hydrogen atoms
+			var temp1 = new THREE.Geometry();
+			temp1.merge(hydrogen_mesh.geometry, hydrogen_mesh.matrix);
+			temp1.merge(bond_mesh.geometry, bond_mesh.matrix);
+			
+			//H+bond
+			var temp_mesh1 = new THREE.Mesh(temp1, );
+ 			
+ 			//C+H+bond
+ 			var geo_c_h=new THREE.Geometry();
+			geo_c_h.merge(temp_mesh1.geometry,temp_mesh1.matrix,0);
+			geo_c_h.merge(carbon_mesh.geometry,carbon_mesh.matrix,1);
+			
+			//C atom
+			var geo_c=new THREE.Geometry();
+			geo_c.merge(carbon_mesh.geometry,carbon_mesh.matrix,1);
+			
+			//C atoms
+			var c1 = new THREE.Mesh(geo_c);
+			var c2 = new THREE.Mesh(geo_c);
+			var c3 = new THREE.Mesh(geo_c);
+			var c4 = new THREE.Mesh(geo_c);
+			var c5 = new THREE.Mesh(geo_c);
+			var c6 = new THREE.Mesh(geo_c);
+			
+			//C+H+bonds
+			var one = new THREE.Mesh(geo_c_h);
+			var two = new THREE.Mesh(geo_c_h);
+			var three = new THREE.Mesh(geo_c_h);
+			var four = new THREE.Mesh(geo_c_h);
+			var five = new THREE.Mesh(geo_c_h);
+			var six = new THREE.Mesh(geo_c_h);
+					
+			// angle for C+H+bond
+			one.applyMatrix( new THREE.Matrix4().makeRotationZ( Math.PI/ 2 ) );
+			two.applyMatrix( new THREE.Matrix4().makeRotationZ( Math.PI/ 4 ) );
+			three.applyMatrix( new THREE.Matrix4().makeRotationZ( -Math.PI/ 15 ) );
+			four.applyMatrix( new THREE.Matrix4().makeRotationZ( Math.PI/ 1 ) );
+			five.applyMatrix( new THREE.Matrix4().makeRotationZ( -Math.PI/ 2 ) );
+			six.applyMatrix( new THREE.Matrix4().makeRotationZ( -Math.PI/ 1.35 ) );
+			
+			//position of C+H+bond	and C atoms respectively		
+			two.position.set(0,250,0);
+			two.updateMatrix();
+			c2.position.set(0,250,0);
+			c2.updateMatrix();
+			three.position.set(250,250,0);
+			three.updateMatrix();
+			c3.position.set(250,250,0);
+			c3.updateMatrix();
+			four.position.set(180,-180,0);
+			four.updateMatrix();
+			c4.position.set(180,-180,0);
+			c4.updateMatrix();
+			five.position.set(450,80,0);
+			five.updateMatrix();
+			c5.position.set(450,80,0);
+			c5.updateMatrix();
+			six.position.set(450,-190,0);
+			six.updateMatrix();
+			c6.position.set(450,-190,0);
+			c6.updateMatrix();
+								
+			//construction of benzene molecule				
+			var main=new THREE.Geometry();
+			
+			    if (calc==0 || calc==26){
+			    	//whole molecule
+					main.merge(one.geometry, one.matrix, 0);
+					main.merge(two.geometry, two.matrix, 0);
+					main.merge(bond_mesh.geometry, bond_mesh.matrix, 1);
+
+					main.merge(three.geometry, three.matrix, 0);
+					bond_mesh.position.set(-250,100,0);
+					bond_mesh.applyMatrix( new THREE.Matrix4().makeRotationZ( -Math.PI/ 2 ) );
+					bond_mesh.updateMatrix();
+					main.merge(bond_mesh.geometry, bond_mesh.matrix, 1);
+
+					main.merge(four.geometry, four.matrix, 0);
+					bond_mesh.position.set(180,0,0);
+					bond_mesh.applyMatrix( new THREE.Matrix4().makeRotationZ( -Math.PI/ 4 ) );
+					bond_mesh.updateMatrix();
+					main.merge(bond_mesh.geometry, bond_mesh.matrix, 1);
+					
+					main.merge(five.geometry, five.matrix, 0);
+					bond_mesh.position.set(350,160,0);
+					bond_mesh.updateMatrix();
+					main.merge(bond_mesh.geometry, bond_mesh.matrix, 1);
+
+					main.merge(six.geometry, six.matrix, 0);
+					bond_mesh.position.set(50,-340,0);
+					bond_mesh.applyMatrix( new THREE.Matrix4().makeRotationZ( Math.PI/ 4 ) );
+					bond_mesh.updateMatrix();
+					main.merge(bond_mesh.geometry, bond_mesh.matrix, 1);
+					
+					bond_mesh.position.set(-100,-450,0);
+					bond_mesh.updateMatrix();
+					bond_mesh.applyMatrix( new THREE.Matrix4().makeRotationZ( Math.PI/ 2 ) );
+					main.merge(bond_mesh.geometry, bond_mesh.matrix, 1);
+				}
+					
+				else if(calc==11){
+					// 1 C atom
+					main.merge(c1.geometry, c1.matrix, 0);
+				}
+
+				else if(calc==12){
+					// 2 C atoms with bond
+					main.merge(c1.geometry, c1.matrix, 0);
+					main.merge(c2.geometry, c2.matrix, 0);
+					main.merge(bond_mesh.geometry, bond_mesh.matrix, 1);	
+				}
+
+				else if(calc==13){
+					// 3 C atoms with bonds
+					main.merge(c1.geometry, c1.matrix, 0);
+					main.merge(c2.geometry, c2.matrix, 0);
+					main.merge(bond_mesh.geometry, bond_mesh.matrix, 1);	
+
+					main.merge(c3.geometry, c3.matrix, 0);
+					bond_mesh.position.set(-250,100,0);
+					bond_mesh.applyMatrix( new THREE.Matrix4().makeRotationZ( -Math.PI/ 2 ) );
+					bond_mesh.updateMatrix();
+					main.merge(bond_mesh.geometry, bond_mesh.matrix, 1);
+				}
+
+				else if(calc==14){
+					// 4 C atoms with bonds
+					main.merge(c1.geometry, c1.matrix, 0);
+					main.merge(c2.geometry, c2.matrix, 0);
+					main.merge(bond_mesh.geometry, bond_mesh.matrix, 1);	
+
+					main.merge(c3.geometry, c3.matrix, 0);
+					bond_mesh.position.set(-250,100,0);
+					bond_mesh.applyMatrix( new THREE.Matrix4().makeRotationZ( -Math.PI/ 2 ) );
+					bond_mesh.updateMatrix();
+					main.merge(bond_mesh.geometry, bond_mesh.matrix, 1);
+
+					main.merge(c4.geometry, c4.matrix, 0);
+					bond_mesh.position.set(180,0,0);
+					bond_mesh.applyMatrix( new THREE.Matrix4().makeRotationZ( -Math.PI/ 4 ) );
+					bond_mesh.updateMatrix();
+					main.merge(bond_mesh.geometry, bond_mesh.matrix, 1);
+				}
+
+				else if(calc==15){
+					// 5 C atoms with bonds
+					main.merge(c1.geometry, c1.matrix, 0);
+					main.merge(c2.geometry, c2.matrix, 0);
+					main.merge(bond_mesh.geometry, bond_mesh.matrix, 1);	
+
+					main.merge(c3.geometry, c3.matrix, 0);
+					bond_mesh.position.set(-250,100,0);
+					bond_mesh.applyMatrix( new THREE.Matrix4().makeRotationZ( -Math.PI/ 2 ) );
+					bond_mesh.updateMatrix();
+					main.merge(bond_mesh.geometry, bond_mesh.matrix, 1);
+
+					main.merge(c4.geometry, c4.matrix, 0);
+					bond_mesh.position.set(180,0,0);
+					bond_mesh.applyMatrix( new THREE.Matrix4().makeRotationZ( -Math.PI/ 4 ) );
+					bond_mesh.updateMatrix();
+					main.merge(bond_mesh.geometry, bond_mesh.matrix, 1);
+
+					main.merge(c5.geometry, c5.matrix, 0);
+					bond_mesh.position.set(350,160,0);
+					bond_mesh.updateMatrix();
+					main.merge(bond_mesh.geometry, bond_mesh.matrix, 1);
+				}
+
+				else if(calc==16){
+					// 6 C atoms with bonds
+					main.merge(c1.geometry, c1.matrix, 0);
+					main.merge(c2.geometry, c2.matrix, 0);
+					main.merge(bond_mesh.geometry, bond_mesh.matrix, 1);	
+
+					main.merge(c3.geometry, c3.matrix, 0);
+					bond_mesh.position.set(-250,100,0);
+					bond_mesh.applyMatrix( new THREE.Matrix4().makeRotationZ( -Math.PI/ 2 ) );
+					bond_mesh.updateMatrix();
+					main.merge(bond_mesh.geometry, bond_mesh.matrix, 1);
+
+					main.merge(c4.geometry, c4.matrix, 0);
+					bond_mesh.position.set(180,0,0);
+					bond_mesh.applyMatrix( new THREE.Matrix4().makeRotationZ( -Math.PI/ 4 ) );
+					bond_mesh.updateMatrix();
+					main.merge(bond_mesh.geometry, bond_mesh.matrix, 1);
+				    
+				    main.merge(c5.geometry, c5.matrix, 0);
+					bond_mesh.position.set(350,160,0);
+					bond_mesh.updateMatrix();
+					main.merge(bond_mesh.geometry, bond_mesh.matrix, 1);
+
+					main.merge(c6.geometry, c6.matrix, 0);
+					bond_mesh.position.set(50,-340,0);
+					bond_mesh.applyMatrix( new THREE.Matrix4().makeRotationZ( Math.PI/ 4 ) );
+					bond_mesh.updateMatrix();
+					main.merge(bond_mesh.geometry, bond_mesh.matrix, 1);
+					
+					bond_mesh.position.set(-100,-450,0);
+					bond_mesh.updateMatrix();
+					bond_mesh.applyMatrix( new THREE.Matrix4().makeRotationZ( Math.PI/ 2 ) );
+					main.merge(bond_mesh.geometry, bond_mesh.matrix, 1);
+				}
+
+				else if(calc==21){
+					// 6 C atoms, 1 H atom with bonds
+					main.merge(one.geometry, one.matrix, 0);
+					main.merge(c2.geometry, c2.matrix, 0);
+					main.merge(bond_mesh.geometry, bond_mesh.matrix, 1);	
+
+					main.merge(c3.geometry, c3.matrix, 0);
+					bond_mesh.position.set(-250,100,0);
+					bond_mesh.applyMatrix( new THREE.Matrix4().makeRotationZ( -Math.PI/ 2 ) );
+					bond_mesh.updateMatrix();
+					main.merge(bond_mesh.geometry, bond_mesh.matrix, 1);
+
+					main.merge(c4.geometry, c4.matrix, 0);
+					bond_mesh.position.set(180,0,0);
+					bond_mesh.applyMatrix( new THREE.Matrix4().makeRotationZ( -Math.PI/ 4 ) );
+					bond_mesh.updateMatrix();
+					main.merge(bond_mesh.geometry, bond_mesh.matrix, 1);
+				    
+				    main.merge(c5.geometry, c5.matrix, 0);
+					bond_mesh.position.set(350,160,0);
+					bond_mesh.updateMatrix();
+					main.merge(bond_mesh.geometry, bond_mesh.matrix, 1);
+
+					main.merge(c6.geometry, c6.matrix, 0);
+					bond_mesh.position.set(50,-340,0);
+					bond_mesh.applyMatrix( new THREE.Matrix4().makeRotationZ( Math.PI/ 4 ) );
+					bond_mesh.updateMatrix();
+					main.merge(bond_mesh.geometry, bond_mesh.matrix, 1);
+					
+					bond_mesh.position.set(-100,-450,0);
+					bond_mesh.updateMatrix();
+					bond_mesh.applyMatrix( new THREE.Matrix4().makeRotationZ( Math.PI/ 2 ) );
+					main.merge(bond_mesh.geometry, bond_mesh.matrix, 1);
+				}
+
+				else if(calc==22){
+					// 6 C atoms, 2 H atoms with bonds
+					main.merge(one.geometry, one.matrix, 0);
+					main.merge(two.geometry, two.matrix, 0);
+					main.merge(bond_mesh.geometry, bond_mesh.matrix, 1);	
+
+					main.merge(c3.geometry, c3.matrix, 0);
+					bond_mesh.position.set(-250,100,0);
+					bond_mesh.applyMatrix( new THREE.Matrix4().makeRotationZ( -Math.PI/ 2 ) );
+					bond_mesh.updateMatrix();
+					main.merge(bond_mesh.geometry, bond_mesh.matrix, 1);
+
+					main.merge(c4.geometry, c4.matrix, 0);
+					bond_mesh.position.set(180,0,0);
+					bond_mesh.applyMatrix( new THREE.Matrix4().makeRotationZ( -Math.PI/ 4 ) );
+					bond_mesh.updateMatrix();
+					main.merge(bond_mesh.geometry, bond_mesh.matrix, 1);
+				    
+				    main.merge(c5.geometry, c5.matrix, 0);
+					bond_mesh.position.set(350,160,0);
+					bond_mesh.updateMatrix();
+					main.merge(bond_mesh.geometry, bond_mesh.matrix, 1);
+
+					main.merge(c6.geometry, c6.matrix, 0);
+					bond_mesh.position.set(50,-340,0);
+					bond_mesh.applyMatrix( new THREE.Matrix4().makeRotationZ( Math.PI/ 4 ) );
+					bond_mesh.updateMatrix();
+					main.merge(bond_mesh.geometry, bond_mesh.matrix, 1);
+					
+					bond_mesh.position.set(-100,-450,0);
+					bond_mesh.updateMatrix();
+					bond_mesh.applyMatrix( new THREE.Matrix4().makeRotationZ( Math.PI/ 2 ) );
+					main.merge(bond_mesh.geometry, bond_mesh.matrix, 1);
+				}
+
+				else if(calc==23){
+					// 6 C atoms, 3 H atoms with bonds
+					main.merge(one.geometry, one.matrix, 0);
+					main.merge(two.geometry, two.matrix, 0);
+					main.merge(bond_mesh.geometry, bond_mesh.matrix, 1);	
+
+					main.merge(three.geometry, three.matrix, 0);
+					bond_mesh.position.set(-250,100,0);
+					bond_mesh.applyMatrix( new THREE.Matrix4().makeRotationZ( -Math.PI/ 2 ) );
+					bond_mesh.updateMatrix();
+					main.merge(bond_mesh.geometry, bond_mesh.matrix, 1);
+
+					main.merge(c4.geometry, c4.matrix, 0);
+					bond_mesh.position.set(180,0,0);
+					bond_mesh.applyMatrix( new THREE.Matrix4().makeRotationZ( -Math.PI/ 4 ) );
+					bond_mesh.updateMatrix();
+					main.merge(bond_mesh.geometry, bond_mesh.matrix, 1);
+				    
+				    main.merge(c5.geometry, c5.matrix, 0);
+					bond_mesh.position.set(350,160,0);
+					bond_mesh.updateMatrix();
+					main.merge(bond_mesh.geometry, bond_mesh.matrix, 1);
+
+					main.merge(c6.geometry, c6.matrix, 0);
+					bond_mesh.position.set(50,-340,0);
+					bond_mesh.applyMatrix( new THREE.Matrix4().makeRotationZ( Math.PI/ 4 ) );
+					bond_mesh.updateMatrix();
+					main.merge(bond_mesh.geometry, bond_mesh.matrix, 1);
+					
+					bond_mesh.position.set(-100,-450,0);
+					bond_mesh.updateMatrix();
+					bond_mesh.applyMatrix( new THREE.Matrix4().makeRotationZ( Math.PI/ 2 ) );
+					main.merge(bond_mesh.geometry, bond_mesh.matrix, 1);
+				}
+
+				else if(calc==24){
+					// 6 C atoms, 4 H atoms with bonds
+					main.merge(one.geometry, one.matrix, 0);
+					main.merge(two.geometry, two.matrix, 0);
+					main.merge(bond_mesh.geometry, bond_mesh.matrix, 1);	
+
+					main.merge(three.geometry, three.matrix, 0);
+					bond_mesh.position.set(-250,100,0);
+					bond_mesh.applyMatrix( new THREE.Matrix4().makeRotationZ( -Math.PI/ 2 ) );
+					bond_mesh.updateMatrix();
+					main.merge(bond_mesh.geometry, bond_mesh.matrix, 1);
+
+					main.merge(four.geometry, four.matrix, 0);
+					bond_mesh.position.set(180,0,0);
+					bond_mesh.applyMatrix( new THREE.Matrix4().makeRotationZ( -Math.PI/ 4 ) );
+					bond_mesh.updateMatrix();
+					main.merge(bond_mesh.geometry, bond_mesh.matrix, 1);
+				    
+				    main.merge(c5.geometry, c5.matrix, 0);
+					bond_mesh.position.set(350,160,0);
+					bond_mesh.updateMatrix();
+					main.merge(bond_mesh.geometry, bond_mesh.matrix, 1);
+
+					main.merge(c6.geometry, c6.matrix, 0);
+					bond_mesh.position.set(50,-340,0);
+					bond_mesh.applyMatrix( new THREE.Matrix4().makeRotationZ( Math.PI/ 4 ) );
+					bond_mesh.updateMatrix();
+					main.merge(bond_mesh.geometry, bond_mesh.matrix, 1);
+					
+					bond_mesh.position.set(-100,-450,0);
+					bond_mesh.updateMatrix();
+					bond_mesh.applyMatrix( new THREE.Matrix4().makeRotationZ( Math.PI/ 2 ) );
+					main.merge(bond_mesh.geometry, bond_mesh.matrix, 1);
+				}
+
+				else if(calc==25){
+					// 6 C atoms, 5 H atoms with bonds
+					main.merge(one.geometry, one.matrix, 0);
+					main.merge(two.geometry, two.matrix, 0);
+					main.merge(bond_mesh.geometry, bond_mesh.matrix, 1);	
+
+					main.merge(three.geometry, three.matrix, 0);
+					bond_mesh.position.set(-250,100,0);
+					bond_mesh.applyMatrix( new THREE.Matrix4().makeRotationZ( -Math.PI/ 2 ) );
+					bond_mesh.updateMatrix();
+					main.merge(bond_mesh.geometry, bond_mesh.matrix, 1);
+
+					main.merge(four.geometry, four.matrix, 0);
+					bond_mesh.position.set(180,0,0);
+					bond_mesh.applyMatrix( new THREE.Matrix4().makeRotationZ( -Math.PI/ 4 ) );
+					bond_mesh.updateMatrix();
+					main.merge(bond_mesh.geometry, bond_mesh.matrix, 1);
+				    
+				    main.merge(five.geometry, five.matrix, 0);
+					bond_mesh.position.set(350,160,0);
+					bond_mesh.updateMatrix();
+					main.merge(bond_mesh.geometry, bond_mesh.matrix, 1);
+
+					main.merge(c6.geometry, c6.matrix, 0);
+					bond_mesh.position.set(50,-340,0);
+					bond_mesh.applyMatrix( new THREE.Matrix4().makeRotationZ( Math.PI/ 4 ) );
+					bond_mesh.updateMatrix();
+					main.merge(bond_mesh.geometry, bond_mesh.matrix, 1);
+					
+					bond_mesh.position.set(-100,-450,0);
+					bond_mesh.updateMatrix();
+					bond_mesh.applyMatrix( new THREE.Matrix4().makeRotationZ( Math.PI/ 2 ) );
+					main.merge(bond_mesh.geometry, bond_mesh.matrix, 1);
+				}
+
+				//final mesh
+				var mesh = new THREE.Mesh(main, new THREE.MeshFaceMaterial([hydrogen_material,carbon_material]));
+				mesh.applyMatrix( new THREE.Matrix4().makeRotationZ( -Math.PI/ 4 ) );
+
+				scene.add(mesh);
+				mesh.position.set(-200,120,-2000);
+				
+		    //Animate
+			var animate= function() {
+			    requestAnimationFrame( animate );
+			  	renderer.render( scene, camera );
+				render();
+			}
+
+			function render(){
+				if(document.getElementById('spin').checked==true){			
+					mesh.position.set(-50,120,-2000);
+					mesh.rotation.y+=0.03;
+				}
+				//mesh.position.set(-50,120,-2000);
+				//mesh.rotation.y+=0.05;
+			}
+			
+			animate();
+		}
+
+		// Event Listener (on screen resize)
+	  	window.addEventListener( 'resize', onWindowResize, false );
+
+		// Resize
+		function onWindowResize() {
+			camera.aspect = window.innerWidth / window.innerHeight;
+			camera.updateProjectionMatrix();
+			renderer.setSize( window.innerWidth/4, window.innerHeight/2 );
+		}
+
+	</script>
 </body>
 </html>
