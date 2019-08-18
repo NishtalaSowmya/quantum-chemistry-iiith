@@ -1,0 +1,117 @@
+{
+    "artciles": [
+        {
+            "quiztitle":"Quiz for Quantum Chemistry",
+            "containers":"5"
+        },
+        {
+            "q": "Which of the following is the acronym for GAMESS?",
+            "option": [
+                "General Atomic and Molecular Electronic Structure System",
+                "Geometric Atomic and Molecular Electronic Structure System",
+                "Geometric Atomic and Molecular Electrical Structural System",
+                "General Atomic and Molecular Electrical Structure System"
+            ],
+            "answer": "General Atomic and Molecular Electronic Structure System",
+            "description": "General Atomic and Molecular Electronic Structure System (GAMESS (US)) is computer software for computational chemistry program."
+        },
+        {
+            "q": "Which of these is correct ?",
+            "option": [
+                "GAMESS is computer software for computational chemistry program",
+                "GAMESS is open-source software",
+                "Both"
+            ],
+            "answer": "GAMESS is computer software for computational chemistry program",
+            "description": " GAMESS is computer software for computational chemistry program and GAMESS (US) source code is available as source-available freeware, but is not open-source software "
+        },
+        {
+            "q": "Computational Chemistry deals with",
+            "option": [
+                "solving chemistry problems",
+                "computer simulation of chemical problems",
+                "calculations in quantum chemistry",
+                "computer simulation of chemical molecules"
+            ],
+            "answer": "computer simulation of chemical problems",
+            "description": "Computational chemistry is a branch of chemistry that uses computer simulation to assist in solving chemical problems."
+        },
+        {
+            "q": " Which of the following computer programs does not carry out ab initio calculations ?",
+            "option": [
+                "Galileo series",
+                "Gamess series",
+                "Gaussian series"
+            ],
+            "answer": "Galileo series",
+            "description": "The two most popular computer programs for carrying out ab initio quantum chemical calculations is the 'Gaussian' and 'Gamess' series."
+        },
+        {
+            "q": "Z-matrix calculation is based on (i) bond distance (ii) bond number (iii) bond angle (iv) dihedral angle (v) trihedral angle",
+            "option": [
+                "Statement (ii),(iii),(iv)",
+                "Statement (i),(ii)",
+                "Statement (ii),(iv),(v)",
+                "Statement (i),(iii),(iv)"
+            ],
+            "answer": "Statement (i),(iii),(iv)",
+            "description": "The Z-Matrix is a simple, geometrical approximation. It works by identifying each atom in a molecule by a bond distance, bond angle and dihedral angle (the so called internal coordinates) in relation to other atoms in the molecule. "
+        },
+        {
+            "q": " Chemical Formula for Formaldehyde ",
+            "option": [
+                "CH2O2",
+                "CHO",
+                "CH2O",
+                "CH2O3"
+            ],
+            "answer": "CH2O",
+            "description": "The chemical formula of formaldehyde is CH2O: it has one carbon (C) atom, two hydrogen (H) atoms and one oxygen (O) atom. Its chemical formula can also be written as HCHO"
+        },
+        {
+            "q": " C60 is also known as ",
+            "option": [
+                "Diamond",
+                "Buckminsterfullerene",
+                "Graphite",
+                "Lonsdaleite"
+            ],
+            "answer": "Buckminsterfullerene",
+            "description": "Buckminsterfullerene, an allotrope of carbon with the chemical formula C60, also known as a buckyball "
+        },
+        {
+            "q": "The number of normal modes of a nonlinear molecule with 'n' atoms can be calculated by",
+            "option": [
+                "(3n-5)",
+                "(3n-6)",
+                "(3n-4)",
+                "3n"
+            ],
+            "answer": "(3n-6)",
+            "description": "For a molecule of n atoms, the number of normal modes is (3n-6) if the molecule taken is nonlinear and it is (3n-5) if the molecule is linear."
+        },
+        {
+            "q": " What does 'Ab initio' stand for? ",
+            "option": [
+                "from internal calculations",
+                "from initial assumptions",
+                "from first principles",
+                "All of the above"
+            ],
+            "answer": "from first principles",
+            "description": "Ab initio means 'from first principles' or 'from the beginning', implying that the only inputs into an ab initio calculation are physical constants"
+        },
+        {
+            "q": " How many imaginaryfrequencies are there for any tranisition state? ",
+            "option": [
+                "0",
+                "1",
+                "2",
+                "3"
+            ],
+            "answer": "1",
+            "description": " A transition state for any molecule would have only one imaginary frequency. If the symmetry of the molecule is restrained it gives more than one imaginary frequency during optimization."
+        }
+        
+    ]
+}
